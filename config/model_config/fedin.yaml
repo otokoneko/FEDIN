@@ -1,0 +1,36 @@
+FEDIN_base:
+    use_mask: true
+    time_predictor_hidden_units: [256]
+    num_heads: 2
+    max_seq_length: 100
+    patch_list: [5]
+    pred_len: 5
+    router_top_k: 3
+    attention_dropout: 0.4
+    attention_alpha: 0.4
+    batch_norm: false
+    model: FEDIN
+    model_root: ./checkpoints/FEDIN/
+
+FEDIN_tmall:
+    base_expid: FEDIN_base
+    dataset_id: tmall_pre
+    sequence_field: !!python/tuple [iid_his, cid_his, sid_his, bid_his]
+    target_field: !!python/tuple [iid, cid, sid, bid]
+    group_id: uid
+    batch_size: 1024
+    router_top_k: 2
+
+FEDIN_taobao:
+    base_expid: FEDIN_base
+    dataset_id: taobao_pre
+    sequence_field: !!python/tuple [iid_his, cid_his]
+    target_field: !!python/tuple [iid, cid]
+    group_id: uid
+
+FEDIN_alipay:
+    base_expid: FEDIN_base
+    dataset_id: alipay_pre
+    sequence_field: !!python/tuple [iid_his, cid_his]
+    target_field: !!python/tuple [iid, cid]
+    group_id: uid 

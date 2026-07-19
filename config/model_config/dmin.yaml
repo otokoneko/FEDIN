@@ -1,0 +1,30 @@
+DMIN_base:
+    batch_norm: false
+    use_behavior_refiner: false
+    model: DMIN
+    model_root: ./checkpoints/DMIN/
+
+DMIN_tmall:
+    base_expid: DMIN_base
+    dataset_id: tmall
+    neg_seq_field: []
+    sequence_field: !!python/tuple [iid_his, cid_his, sid_his, bid_his]
+    target_field: !!python/tuple [iid, cid, sid, bid]
+    group_id: uid
+
+DMIN_taobao:
+    base_expid: DMIN_base
+    dataset_id: taobao
+    neg_seq_field: []
+    sequence_field: !!python/tuple [iid_his, cid_his]
+    target_field: !!python/tuple [iid, cid]
+    group_id: uid
+
+DMIN_alipay:
+    base_expid: DMIN_base
+    dataset_id: alipay
+    neg_seq_field: []
+    sequence_field: !!python/tuple [iid_his, cid_his]
+    target_field: !!python/tuple [iid, cid]
+    group_id: uid
+

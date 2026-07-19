@@ -1,0 +1,26 @@
+BST_base:
+    num_heads: 4
+    model: BST
+    model_root: ./checkpoints/BST/
+
+BST_tmall:
+    base_expid: BST_base
+    dataset_id: tmall_pre
+    bst_sequence_field: !!python/tuple [iid_his, cid_his, sid_his, bid_his]
+    bst_target_field: !!python/tuple [iid, cid, sid, bid]
+    group_id: uid
+
+BST_taobao:
+    base_expid: BST_base
+    dataset_id: taobao_pre
+    bst_sequence_field: !!python/tuple [iid_his, cid_his]
+    bst_target_field: !!python/tuple [iid, cid]
+    group_id: uid
+
+BST_alipay:
+    base_expid: BST_base
+    dataset_id: alipay_pre
+    bst_sequence_field: !!python/tuple [iid_his, cid_his]
+    bst_target_field: !!python/tuple [iid, cid]
+    group_id: uid
+

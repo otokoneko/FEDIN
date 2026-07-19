@@ -1,0 +1,48 @@
+alipay_pre:
+    data_root: ./data/
+    data_format: csv
+    test_data: ./data/alipay/test.csv
+    train_data: ./data/alipay/train.csv
+    valid_data: ./data/alipay/valid.csv
+    min_categr_count: 10
+    feature_cols:
+    - {active: true, dtype: int, name: uid, remap: false, type: meta}
+    - {active: true, dtype: str, name: iid, type: categorical}
+    - {active: true, dtype: str, name: cid, type: categorical}
+    - {active: true, dtype: str, feature_encoder: null, max_len: 100, name: iid_his, padding: pre, share_embedding: iid, splitter: ^, type: sequence}
+    - {active: true, dtype: str, feature_encoder: null, max_len: 100, name: cid_his, padding: pre, share_embedding: cid, splitter: ^, type: sequence}
+    label_col: {dtype: float, name: clk}
+
+taobao_pre:
+    data_root: ./data/
+    data_format: csv
+    test_data: ./data/ijcai2015/test.csv
+    train_data: ./data/ijcai2015/train.csv
+    valid_data: ./data/ijcai2015/valid.csv
+    min_categr_count: 10
+    feature_cols:
+    - {active: true, dtype: int, name: uid, remap: false, type: meta}
+    - {active: true, dtype: str, name: iid, type: categorical}
+    - {active: true, dtype: str, name: cid, type: categorical}
+    - {active: true, dtype: str, feature_encoder: null, max_len: 100, name: iid_his, padding: pre, share_embedding: iid, splitter: ^, type: sequence}
+    - {active: true, dtype: str, feature_encoder: null, max_len: 100, name: cid_his, padding: pre, share_embedding: cid, splitter: ^, type: sequence}
+    label_col: {dtype: float, name: clk}
+
+tmall_pre:
+    data_root: ./data/
+    data_format: csv
+    test_data: ./data/tmall/test.csv
+    train_data: ./data/tmall/train.csv
+    valid_data: ./data/tmall/valid.csv
+    min_categr_count: 10
+    feature_cols:
+    - {active: true, dtype: int, name: uid, remap: false, type: meta}
+    - {active: true, dtype: str, name: iid, type: categorical}
+    - {active: true, dtype: str, name: cid, type: categorical}
+    - {active: true, dtype: str, name: sid, type: categorical}
+    - {active: true, dtype: str, name: bid, type: categorical}
+    - {active: true, dtype: str, feature_encoder: null, max_len: 100, name: iid_his, padding: pre, share_embedding: iid, splitter: ^, type: sequence}
+    - {active: true, dtype: str, feature_encoder: null, max_len: 100, name: cid_his, padding: pre, share_embedding: cid, splitter: ^, type: sequence}
+    - {active: true, dtype: str, feature_encoder: null, max_len: 100, name: sid_his, padding: pre, share_embedding: sid, splitter: ^, type: sequence}
+    - {active: true, dtype: str, feature_encoder: null, max_len: 100, name: bid_his, padding: pre, share_embedding: bid, splitter: ^, type: sequence}
+    label_col: {dtype: float, name: clk}

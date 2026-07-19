@@ -1,0 +1,27 @@
+BERT_base:
+    batch_norm: false
+    model: SASRec
+    seq_pooling_type: sum
+    use_causal_mask: false
+    model_root: ./checkpoints/BERT/
+
+BERT_tmall:
+    base_expid: BERT_base
+    dataset_id: tmall_pre
+    sequence_field: !!python/tuple [iid_his, cid_his, sid_his, bid_his]
+    target_field: !!python/tuple [iid, cid, sid, bid]
+    group_id: uid
+
+BERT_taobao:
+    base_expid: BERT_base
+    dataset_id: taobao_pre
+    sequence_field: !!python/tuple [iid_his, cid_his]
+    target_field: !!python/tuple [iid, cid]
+    group_id: uid
+
+BERT_alipay:
+    base_expid: BERT_base
+    dataset_id: alipay_pre
+    sequence_field: !!python/tuple [iid_his, cid_his]
+    target_field: !!python/tuple [iid, cid]
+    group_id: uid

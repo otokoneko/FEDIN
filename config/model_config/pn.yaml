@@ -1,0 +1,27 @@
+PN_base:
+    trend_extractor_hidden_units: [32]
+    batch_norm: false
+    max_seq_length: 100
+    model: PoolNet
+    model_root: ./checkpoints/PN/
+
+PN_tmall:
+    base_expid: PN_base
+    dataset_id: tmall_pre
+    sequence_field: !!python/tuple [iid_his, cid_his, sid_his, bid_his]
+    target_field: !!python/tuple [iid, cid, sid, bid]
+    group_id: uid
+
+PN_taobao:
+    base_expid: PN_base
+    dataset_id: taobao_pre
+    sequence_field: !!python/tuple [iid_his, cid_his]
+    target_field: !!python/tuple [iid, cid]
+    group_id: uid
+
+PN_alipay:
+    base_expid: PN_base
+    dataset_id: alipay_pre
+    sequence_field: !!python/tuple [iid_his, cid_his]
+    target_field: !!python/tuple [iid, cid]
+    group_id: uid

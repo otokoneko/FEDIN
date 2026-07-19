@@ -1,0 +1,25 @@
+DIN_base:
+    model: DIN
+    model_root: ./checkpoints/DIN/
+
+DIN_tmall:
+    base_expid: DIN_base
+    dataset_id: tmall
+    din_sequence_field: !!python/tuple [iid_his, cid_his, sid_his, bid_his]
+    din_target_field: !!python/tuple [iid, cid, sid, bid]
+    group_id: uid
+
+DIN_taobao:
+    base_expid: DIN_base
+    dataset_id: taobao
+    din_sequence_field: !!python/tuple [iid_his, cid_his]
+    din_target_field: !!python/tuple [iid, cid]
+    group_id: uid
+
+DIN_alipay:
+    base_expid: DIN_base
+    dataset_id: alipay
+    din_sequence_field: !!python/tuple [iid_his, cid_his]
+    din_target_field: !!python/tuple [iid, cid]
+    group_id: uid
+

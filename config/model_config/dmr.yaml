@@ -1,0 +1,30 @@
+DMR_base:
+    context_field: null
+    pos_emb_dim: 64
+    model: DMR
+    model_root: ./checkpoints/DMR/
+
+DMR_tmall:
+    base_expid: DMR_base
+    dataset_id: tmall
+    neg_seq_field: []
+    sequence_field: !!python/tuple [iid_his, cid_his, sid_his, bid_his]
+    target_field: !!python/tuple [iid, cid, sid, bid]
+    group_id: uid
+
+DMR_taobao:
+    base_expid: DMR_base
+    dataset_id: taobao
+    neg_seq_field: []
+    sequence_field: !!python/tuple [iid_his, cid_his]
+    target_field: !!python/tuple [iid, cid]
+    group_id: uid
+
+DMR_alipay:
+    base_expid: DMR_base
+    dataset_id: alipay
+    neg_seq_field: []
+    sequence_field: !!python/tuple [iid_his, cid_his]
+    target_field: !!python/tuple [iid, cid]
+    group_id: uid
+

@@ -1,0 +1,29 @@
+GRU_base:
+    batch_norm: false
+    model: DIEN
+    gru_type: GRU
+    model_root: ./checkpoints/GRU/
+
+GRU_tmall:
+    base_expid: GRU_base
+    dataset_id: tmall
+    dien_neg_seq_field: []
+    dien_sequence_field: !!python/tuple [iid_his, cid_his, sid_his, bid_his]
+    dien_target_field: !!python/tuple [iid, cid, sid, bid]
+    group_id: uid
+
+GRU_taobao:
+    base_expid: GRU_base
+    dataset_id: taobao
+    dien_neg_seq_field: []
+    dien_sequence_field: !!python/tuple [iid_his, cid_his]
+    dien_target_field: !!python/tuple [iid, cid]
+    group_id: uid
+
+GRU_alipay:
+    base_expid: GRU_base
+    dataset_id: alipay
+    dien_neg_seq_field: []
+    dien_sequence_field: !!python/tuple [iid_his, cid_his]
+    dien_target_field: !!python/tuple [iid, cid]
+    group_id: uid

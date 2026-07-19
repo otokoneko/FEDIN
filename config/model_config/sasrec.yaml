@@ -1,0 +1,27 @@
+SASRec_base:
+    batch_norm: false
+    model: SASRec
+    seq_pooling_type: sum
+    use_causal_mask: true
+    model_root: ./checkpoints/SASRec/
+
+SASRec_tmall:
+    base_expid: SASRec_base
+    dataset_id: tmall_pre
+    sequence_field: !!python/tuple [iid_his, cid_his, sid_his, bid_his]
+    target_field: !!python/tuple [iid, cid, sid, bid]
+    group_id: uid
+
+SASRec_taobao:
+    base_expid: SASRec_base
+    dataset_id: taobao_pre
+    sequence_field: !!python/tuple [iid_his, cid_his]
+    target_field: !!python/tuple [iid, cid]
+    group_id: uid
+
+SASRec_alipay:
+    base_expid: SASRec_base
+    dataset_id: alipay_pre
+    sequence_field: !!python/tuple [iid_his, cid_his]
+    target_field: !!python/tuple [iid, cid]
+    group_id: uid

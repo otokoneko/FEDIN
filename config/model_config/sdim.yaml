@@ -1,0 +1,34 @@
+SDIM_base:
+    num_heads: 4
+    num_hashes: 128
+    hash_bits: 8
+    model: SDIM
+    model_root: ./checkpoints/SDIM/
+
+SDIM_tmall:
+    base_expid: SDIM_base
+    dataset_id: tmall
+    short_sequence_field: []
+    short_target_field: []
+    long_sequence_field: !!python/tuple [iid_his, cid_his, sid_his, bid_his]
+    long_target_field: !!python/tuple [iid, cid, sid, bid]
+    group_id: uid
+
+SDIM_taobao:
+    base_expid: SDIM_base
+    dataset_id: taobao
+    short_sequence_field: []
+    short_target_field: []
+    long_sequence_field: !!python/tuple [iid_his, cid_his]
+    long_target_field: !!python/tuple [iid, cid]
+    group_id: uid
+
+SDIM_alipay:
+    base_expid: SDIM_base
+    dataset_id: alipay
+    short_sequence_field: []
+    short_target_field: []
+    long_sequence_field: !!python/tuple [iid_his, cid_his]
+    long_target_field: !!python/tuple [iid, cid]
+    group_id: uid
+

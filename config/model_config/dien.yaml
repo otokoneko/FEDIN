@@ -1,0 +1,32 @@
+DIEN_base:
+    attention_type: dot_attention
+    batch_norm: false
+    use_attention_softmax: true
+    enable_sum_pooling: true
+    gru_type: AUGRU
+    model: DIEN
+    model_root: ./checkpoints/DIEN/
+
+DIEN_tmall:
+    base_expid: DIEN_base
+    dataset_id: tmall
+    dien_neg_seq_field: []
+    dien_sequence_field: !!python/tuple [iid_his, cid_his, sid_his, bid_his]
+    dien_target_field: !!python/tuple [iid, cid, sid, bid]
+    group_id: uid
+
+DIEN_taobao:
+    base_expid: DIEN_base
+    dataset_id: taobao
+    dien_neg_seq_field: []
+    dien_sequence_field: !!python/tuple [iid_his, cid_his]
+    dien_target_field: !!python/tuple [iid, cid]
+    group_id: uid
+
+DIEN_alipay:
+    base_expid: DIEN_base
+    dataset_id: alipay
+    dien_neg_seq_field: []
+    dien_sequence_field: !!python/tuple [iid_his, cid_his]
+    dien_target_field: !!python/tuple [iid, cid]
+    group_id: uid
